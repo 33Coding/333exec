@@ -1,0 +1,25 @@
+﻿package main
+import (
+{{if .Imports }}
+    {{range $i, $import :=  .Imports}}
+        "{{$import}}"
+	{{end}}
+{{end}}
+)
+{{if .Imports }}
+    {{range $i :=  .Vars}}
+            {{index .Vars $i }}
+    {{end}}
+{{end}}
+func main() {
+    {{if .MainCode }}
+	    {{range $i, $code :=  .MainCode}}
+                {{$code}}
+        {{end}}
+    {{end}}
+}
+{{if .Funcs }}
+    {{range $i :=  .Funcs}}
+        {{index .Funcs $i }}
+    {{end}}
+{{end}}
